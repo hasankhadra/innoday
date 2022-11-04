@@ -1,11 +1,5 @@
-import type { NextPage } from 'next'
+import type { NextPage } from "next";
 
-const Day: NextPage = () => {
-    return (
-      <div>
-        Day Form Page
-      </div>  
-    )
-  }
+const Day: NextPage = () => <div>Day Form Page</div>;
 
 export default Day;
