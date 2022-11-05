@@ -10,50 +10,50 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 export const FireBaseAppContext = React.createContext<{
-    firebaseApp: FirebaseApp;
-    db: Firestore;
-    auth: Auth;
+  firebaseApp: FirebaseApp;
+  db: Firestore;
+  auth: Auth;
 } | null>(null);
 
 export const AuthenticationContext = React.createContext<{
-    uid: string;
-    // eslint-disable-next-line no-unused-vars
-    setUid: (uid: string) => void;
+  uid: string;
+  // eslint-disable-next-line no-unused-vars
+  setUid: (uid: string) => void;
 } | null>(null);
 
 function MyApp({ Component, pageProps }: AppProps) {
-    const [uid, setUid] = React.useState<string>("");
+  const [uid, setUid] = React.useState<string>("");
 
-    const auth = getAuth(app);
+  const auth = getAuth(app);
 
-    const fireBaseAppValue = useMemo(
-        () => ({
-            firebaseApp: app,
-            db,
-            auth,
-        }),
-        [auth]
-    );
+  const fireBaseAppValue = useMemo(
+    () => ({
+      firebaseApp: app,
+      db,
+      auth,
+    }),
+    [auth]
+  );
 
-    const authenticationValue = useMemo(
-        () => ({
-            uid,
-            setUid,
-        }),
-        [uid, setUid]
-    );
+  const authenticationValue = useMemo(
+    () => ({
+      uid,
+      setUid,
+    }),
+    [uid, setUid]
+  );
 
-    useEffect(() => {
-        setUid(auth?.currentUser?.uid || "");
-    }, [auth?.currentUser]);
+  useEffect(() => {
+    setUid(auth?.currentUser?.uid || "");
+  }, [auth?.currentUser]);
 
-    return (
-        <AuthenticationContext.Provider value={authenticationValue}>
-            <FireBaseAppContext.Provider value={fireBaseAppValue}>
-                <Component {...pageProps} />
-            </FireBaseAppContext.Provider>
-        </AuthenticationContext.Provider>
-    );
+  return (
+    <AuthenticationContext.Provider value={authenticationValue}>
+      <FireBaseAppContext.Provider value={fireBaseAppValue}>
+        <Component {...pageProps} />
+      </FireBaseAppContext.Provider>
+    </AuthenticationContext.Provider>
+  );
 }
 
 export default MyApp;
