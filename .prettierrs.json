@@ -1,7 +1,12 @@
 {
-  "proseWrap": "never",
-  "quoteProps": "consistent",
-  "semi": false,
-  "singleQuote": true,
-  "trailingComma": "all"
+    "quoteProps": "consistent",
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "all",
+    "useTabs": false,
+    "tabWidth": 4,
+    "bracketSpacing": true,
+    "printWidth": 80,
+    "editor.formatOnSave": true,
+    "proseWrap": "always"
 }

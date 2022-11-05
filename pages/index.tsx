@@ -1,8 +1,17 @@
 import type { NextPage } from "next";
-// import Head from 'next/head';
-// import Image from 'next/image';
-// import styles from '../styles/Home.module.css';
+import { useContext } from "react";
+import SignOutButton from "../src/components/entry/SignOutButton";
+import { AuthenticationContext } from "./_app";
 
-const Home: NextPage = () => <div>Home Page</div>;
+const Home: NextPage = () => {
+    const { uid } = useContext(AuthenticationContext)!;
+
+    return (
+        <div>
+            <div>Home Page</div>
+            {uid && <SignOutButton />}
+        </div>
+    );
+};
 
 export default Home;
