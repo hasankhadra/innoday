@@ -1,0 +1,10 @@
+
+.login {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.13);
+    margin: 0 auto;
+    max-width: 300px;
+    padding: 20px;
+}

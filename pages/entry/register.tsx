@@ -19,7 +19,7 @@ const Register: NextPage = () => {
     }
   });
 
-  const signInWithEmailAndPasswordHandler = async (
+  const registerWithEmailAndPasswordHandler = async (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     event.preventDefault();
@@ -27,7 +27,7 @@ const Register: NextPage = () => {
       await createNewUserFireBase(auth, email, password);
       router.push("/");
     } catch (_error) {
-      setError("Error signing in with password and email!");
+      setError("Error registering with password and email!");
     }
   };
   const onChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -72,7 +72,7 @@ const Register: NextPage = () => {
           <button
             className="bg-green-400 hover:bg-green-500 w-full py-2 text-white"
             onClick={(event) => {
-              signInWithEmailAndPasswordHandler(event);
+              registerWithEmailAndPasswordHandler(event);
             }}
           >
             {" "}

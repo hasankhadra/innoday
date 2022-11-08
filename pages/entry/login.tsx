@@ -1,7 +1,7 @@
 /* eslint-disable import/extensions */
 import type { NextPage } from "next";
 // import { getAuth, onAuthStateChanged } from "firebase/auth";
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { onAuthStateChanged } from "firebase/auth";
 import { FireBaseAppContext } from "../_app";
@@ -11,6 +11,7 @@ const Login: NextPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(true);
   const router = useRouter();
   const { auth } = useContext(FireBaseAppContext)!;
 
@@ -19,6 +20,10 @@ const Login: NextPage = () => {
       router.push("/");
     }
   });
+
+  useEffect(() => {
+    setLoading(false);
+  }, []);
 
   const signInWithEmailAndPasswordHandler = async (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
@@ -41,9 +46,11 @@ const Login: NextPage = () => {
     }
   };
   return (
-    <div>
-      <h1 className="text-3xl mb-2 text-center font-bold">Login</h1>
-      <div className="border border-blue-300 bg-blue-100 rounded-lg py-8 px-4">
+    
+   <div>
+    {loading ? <div></div>: <div></div>}
+     <h1 className="text-3xl mb-2 text-center font-bold">Login</h1>
+      <div className="login">
         {error !== "" && <div>{error}</div>}
         <form className="">
           <label htmlFor="userEmail" className="block">
