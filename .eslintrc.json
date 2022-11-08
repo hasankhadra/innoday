@@ -2,5 +2,8 @@
   "extends": ["next/core-web-vitals", "airbnb-base", "prettier"],
   "parserOptions": {
     "project": "./tsconfig.json"
+  },
+  "rules": {
+    "import/extensions": "off"
   }
 }

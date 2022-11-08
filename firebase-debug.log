@@ -1,0 +1,82 @@
+[debug] [2022-11-04T08:46:18.560Z] ----------------------------------------------------------------------
+[debug] [2022-11-04T08:46:18.562Z] Command:       /opt/homebrew/Cellar/node@16/16.18.0/bin/node /opt/homebrew/bin/firebase deploy
+[debug] [2022-11-04T08:46:18.562Z] CLI Version:   11.16.0
+[debug] [2022-11-04T08:46:18.562Z] Platform:      darwin
+[debug] [2022-11-04T08:46:18.562Z] Node Version:  v16.18.0
+[debug] [2022-11-04T08:46:18.563Z] Time:          Fri Nov 04 2022 11:46:18 GMT+0300 (Moscow Standard Time)
+[debug] [2022-11-04T08:46:18.563Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-11-04T08:46:18.604Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-11-04T08:46:18.604Z] > authorizing via signed-in user (hasankhadra2013@gmail.com)
+[debug] [2022-11-04T08:46:18.604Z] [iam] checking project innoday-6b9ff for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-11-04T08:46:18.605Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/innoday-6b9ff:testIamPermissions [none]
+[debug] [2022-11-04T08:46:18.605Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/innoday-6b9ff:testIamPermissions x-goog-quota-user=projects/innoday-6b9ff
+[debug] [2022-11-04T08:46:18.605Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/innoday-6b9ff:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-11-04T08:46:18.925Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/innoday-6b9ff:testIamPermissions 200
+[debug] [2022-11-04T08:46:18.925Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/innoday-6b9ff:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-11-04T08:46:18.927Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/innoday-6b9ff [none]
+[debug] [2022-11-04T08:46:19.311Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/innoday-6b9ff 200
+[debug] [2022-11-04T08:46:19.312Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/innoday-6b9ff {"projectId":"innoday-6b9ff","projectNumber":"334247834232","displayName":"innoday","name":"projects/innoday-6b9ff","resources":{"hostingSite":"innoday-6b9ff"},"state":"ACTIVE","etag":"1_9ef76eb7-3755-4b0c-be8b-a28460c75484"}
+[debug] [2022-11-04T08:46:20.214Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/innoday-6b9ff/sites pageToken=&pageSize=10
+[debug] [2022-11-04T08:46:21.474Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/innoday-6b9ff/sites 200
+[debug] [2022-11-04T08:46:21.474Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/innoday-6b9ff/sites {"sites":[{"name":"projects/innoday-6b9ff/sites/innoday-6b9ff","defaultUrl":"https://innoday-6b9ff.web.app","appId":"1:334247834232:web:866b43440fb8a2b3b7f38d","type":"DEFAULT_SITE"}]}
+[debug] [2022-11-04T08:46:21.475Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:334247834232:web:866b43440fb8a2b3b7f38d/config [none]
+[debug] [2022-11-04T08:46:22.598Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:334247834232:web:866b43440fb8a2b3b7f38d/config 200
+[debug] [2022-11-04T08:46:22.598Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:334247834232:web:866b43440fb8a2b3b7f38d/config {"projectId":"innoday-6b9ff","appId":"1:334247834232:web:866b43440fb8a2b3b7f38d","storageBucket":"innoday-6b9ff.appspot.com","apiKey":"AIzaSyAc2Z8DBuSWL_ifUmRFH5ukChjUlWeW3e8","authDomain":"innoday-6b9ff.firebaseapp.com","messagingSenderId":"334247834232","measurementId":"G-CJ9E9PK1Z2"}
+[debug] [2022-11-04T08:46:32.261Z] Error: Command failed: npm i --omit dev --no-audit
+    at checkExecSyncError (node:child_process:861:11)
+    at execSync (node:child_process:932:15)
+    at prepareFrameworks (/opt/homebrew/lib/node_modules/firebase-tools/lib/frameworks/index.js:329:42)
+    at async deploy (/opt/homebrew/lib/node_modules/firebase-tools/lib/deploy/index.js:53:13)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2022-11-04T08:47:08.188Z] ----------------------------------------------------------------------
+[debug] [2022-11-04T08:47:08.189Z] Command:       /opt/homebrew/Cellar/node@16/16.18.0/bin/node /opt/homebrew/bin/firebase deploy
+[debug] [2022-11-04T08:47:08.189Z] CLI Version:   11.16.0
+[debug] [2022-11-04T08:47:08.189Z] Platform:      darwin
+[debug] [2022-11-04T08:47:08.189Z] Node Version:  v16.18.0
+[debug] [2022-11-04T08:47:08.190Z] Time:          Fri Nov 04 2022 11:47:08 GMT+0300 (Moscow Standard Time)
+[debug] [2022-11-04T08:47:08.190Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-11-04T08:47:08.230Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-11-04T08:47:08.230Z] > authorizing via signed-in user (hasankhadra2013@gmail.com)
+[debug] [2022-11-04T08:47:08.230Z] [iam] checking project innoday-6b9ff for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-11-04T08:47:08.231Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/innoday-6b9ff:testIamPermissions [none]
+[debug] [2022-11-04T08:47:08.231Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/innoday-6b9ff:testIamPermissions x-goog-quota-user=projects/innoday-6b9ff
+[debug] [2022-11-04T08:47:08.232Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/innoday-6b9ff:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-11-04T08:47:09.300Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/innoday-6b9ff:testIamPermissions 200
+[debug] [2022-11-04T08:47:09.301Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/innoday-6b9ff:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-11-04T08:47:09.302Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/innoday-6b9ff [none]
+[debug] [2022-11-04T08:47:09.803Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/innoday-6b9ff 200
+[debug] [2022-11-04T08:47:43.008Z] ----------------------------------------------------------------------
+[debug] [2022-11-04T08:47:43.009Z] Command:       /opt/homebrew/Cellar/node@16/16.18.0/bin/node /opt/homebrew/bin/firebase deploy
+[debug] [2022-11-04T08:47:43.009Z] CLI Version:   11.16.0
+[debug] [2022-11-04T08:47:43.009Z] Platform:      darwin
+[debug] [2022-11-04T08:47:43.009Z] Node Version:  v16.18.0
+[debug] [2022-11-04T08:47:43.010Z] Time:          Fri Nov 04 2022 11:47:43 GMT+0300 (Moscow Standard Time)
+[debug] [2022-11-04T08:47:43.010Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-11-04T08:47:43.049Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-11-04T08:47:43.049Z] > authorizing via signed-in user (hasankhadra2013@gmail.com)
+[debug] [2022-11-04T08:47:43.049Z] [iam] checking project innoday-6b9ff for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-11-04T08:47:43.051Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/innoday-6b9ff:testIamPermissions [none]
+[debug] [2022-11-04T08:47:43.051Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/innoday-6b9ff:testIamPermissions x-goog-quota-user=projects/innoday-6b9ff
+[debug] [2022-11-04T08:47:43.051Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/innoday-6b9ff:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-11-04T08:47:44.016Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/innoday-6b9ff:testIamPermissions 200
+[debug] [2022-11-04T08:47:44.017Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/innoday-6b9ff:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-11-04T08:47:44.018Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/innoday-6b9ff [none]
+[debug] [2022-11-04T08:47:44.374Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/innoday-6b9ff 200
+[debug] [2022-11-04T08:47:44.374Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/innoday-6b9ff {"projectId":"innoday-6b9ff","projectNumber":"334247834232","displayName":"innoday","name":"projects/innoday-6b9ff","resources":{"hostingSite":"innoday-6b9ff"},"state":"ACTIVE","etag":"1_9ef76eb7-3755-4b0c-be8b-a28460c75484"}
+[debug] [2022-11-04T08:47:45.236Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/innoday-6b9ff/sites pageToken=&pageSize=10
+[debug] [2022-11-04T08:47:46.362Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/innoday-6b9ff/sites 200
+[debug] [2022-11-04T08:47:46.363Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/innoday-6b9ff/sites {"sites":[{"name":"projects/innoday-6b9ff/sites/innoday-6b9ff","defaultUrl":"https://innoday-6b9ff.web.app","appId":"1:334247834232:web:866b43440fb8a2b3b7f38d","type":"DEFAULT_SITE"}]}
+[debug] [2022-11-04T08:47:46.363Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:334247834232:web:866b43440fb8a2b3b7f38d/config [none]
+[debug] [2022-11-04T08:47:47.688Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:334247834232:web:866b43440fb8a2b3b7f38d/config 200
+[debug] [2022-11-04T08:47:47.689Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:334247834232:web:866b43440fb8a2b3b7f38d/config {"projectId":"innoday-6b9ff","appId":"1:334247834232:web:866b43440fb8a2b3b7f38d","storageBucket":"innoday-6b9ff.appspot.com","apiKey":"AIzaSyAc2Z8DBuSWL_ifUmRFH5ukChjUlWeW3e8","authDomain":"innoday-6b9ff.firebaseapp.com","messagingSenderId":"334247834232","measurementId":"G-CJ9E9PK1Z2"}
+[debug] [2022-11-04T08:47:54.660Z] Error: Command failed: npm i --omit dev --no-audit
+    at checkExecSyncError (node:child_process:861:11)
+    at execSync (node:child_process:932:15)
+    at prepareFrameworks (/opt/homebrew/lib/node_modules/firebase-tools/lib/frameworks/index.js:329:42)
+    at async deploy (/opt/homebrew/lib/node_modules/firebase-tools/lib/deploy/index.js:53:13)
+[error] 
+[error] Error: An unexpected error has occurred.
