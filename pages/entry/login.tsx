@@ -46,10 +46,9 @@ const Login: NextPage = () => {
     }
   };
   return (
-    
-   <div>
-    {loading ? <div></div>: <div></div>}
-     <h1 className="text-3xl mb-2 text-center font-bold">Login</h1>
+    <div>
+      {loading ? <div></div> : <div></div>}
+      <h1 className="text-3xl mb-2 text-center font-bold">Login</h1>
       <div className="login">
         {error !== "" && <div>{error}</div>}
         <form className="">
