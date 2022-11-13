@@ -1,8 +1,8 @@
 import type { NextPage } from 'next'
 import { useRouter } from 'next/router'
 import { useContext, useEffect } from 'react'
-import Header from '../src/components/Header'
-import Stats from '../src/components/Stats'
+import Header from '../components/Header'
+import Stats from '../components/Stats'
 import { FireBaseAppContext } from './_app'
 
 const Home: NextPage = () => {

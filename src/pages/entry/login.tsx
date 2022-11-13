@@ -3,10 +3,10 @@ import type { NextPage } from 'next'
 import React, { useContext, useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { FireBaseAppContext } from '../_app'
-import { signInFireBase } from '../../src/utils/firebase'
-import { isEmailValid, isPasswordValid } from '../../src/utils/validation'
-import EntryForm from '../../src/components/entry/EntryForm'
-import EntryHeader from '../../src/components/entry/EntryHeader'
+import { signInFireBase } from '../../utils/firebase'
+import { isEmailValid, isPasswordValid } from '../../utils/validation'
+import EntryForm from '../../components/entry/EntryForm'
+import EntryHeader from '../../components/entry/EntryHeader'
 
 const Login: NextPage = () => {
     const [email, setEmail] = useState('')

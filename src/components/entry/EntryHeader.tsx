@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { useContext } from 'react'
-import { FireBaseAppContext } from '../../../pages/_app'
+import { FireBaseAppContext } from '../../pages/_app'
 import SignOutButton from './SignOutButton'
 
 const EntryHeader = () => {
