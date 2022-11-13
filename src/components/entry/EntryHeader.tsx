@@ -3,7 +3,7 @@ import { useContext } from 'react'
 import { FireBaseAppContext } from '../../../pages/_app'
 import SignOutButton from './SignOutButton'
 
-const Entry = () => {
+const EntryHeader = () => {
     const { uid } = useContext(FireBaseAppContext)!
 
     return (
@@ -21,4 +21,4 @@ const Entry = () => {
     )
 }
 
-export default Entry
+export default EntryHeader
