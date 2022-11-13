@@ -6,11 +6,13 @@ import { fetchFromApi } from '../utils/api'
 const useGetStats = (uid?: string) => {
     const [stats, setStats] = useState<Stats>()
 
+    // Fetch stats from API
     const getStats = useCallback(async () => {
         const fetchedStats = await fetchFromApi(API_METHODS.STATS, uid)
         setStats(fetchedStats)
     }, [uid])
 
+    // Fetch stats on mount
     useEffect(() => {
         setStats({
             totalHours: 90,

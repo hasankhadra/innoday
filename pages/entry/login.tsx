@@ -1,90 +1,64 @@
 /* eslint-disable import/extensions */
 import type { NextPage } from 'next'
-// import { getAuth, onAuthStateChanged } from "firebase/auth";
 import React, { useContext, useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { FireBaseAppContext } from '../_app'
 import { signInFireBase } from '../../src/utils/firebase'
+import { isEmailValid, isPasswordValid } from '../../src/utils/validation'
+import EntryForm from '../../src/components/entry/EntryForm'
 
 const Login: NextPage = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [error, setError] = useState('')
-    const [loading, setLoading] = useState(true)
     const router = useRouter()
     const { auth, uid } = useContext(FireBaseAppContext)!
-
-    useEffect(() => {
-        setLoading(false)
-    }, [])
+    const [submitted, setSubmitted] = useState(false)
 
     useEffect(() => {
         if (uid) router.push('/')
     }, [router, uid])
 
+    useEffect(() => {
+        if (submitted) {
+            router.push('/')
+            setSubmitted(false)
+        }
+    }, [router, submitted])
+
     const signInWithEmailAndPasswordHandler = async (
         event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
     ) => {
         event.preventDefault()
+
+        if (!isEmailValid(email)) {
+            setError('Please enter a valid email')
+            return
+        }
+
+        if (!isPasswordValid(password)) {
+            setError('Please enter a valid password')
+            return
+        }
+
         try {
             await signInFireBase(auth, email, password)
-            router.push('/')
+            setSubmitted(true)
         } catch (_error) {
             setError('Error signing in with password and email!')
         }
     }
-    const onChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = event.currentTarget
 
-        if (name === 'userEmail') {
-            setEmail(value)
-        } else if (name === 'userPassword') {
-            setPassword(value)
-        }
-    }
     return (
-        <div>
-            {loading ? <div></div> : <div></div>}
-            <h1 className="text-3xl mb-2 text-center font-bold">Login</h1>
-            <div className="login">
-                {error !== '' && <div>{error}</div>}
-                <form className="">
-                    <label htmlFor="userEmail" className="block">
-                        Email:
-                    </label>
-                    <input
-                        type="email"
-                        className="my-1 p-1 w-full"
-                        name="userEmail"
-                        value={email}
-                        placeholder="E.g: example@company.com"
-                        id="userEmail"
-                        onChange={(event) => onChangeHandler(event)}
-                    />
-                    <label htmlFor="userPassword" className="block">
-                        Password:
-                    </label>
-                    <input
-                        type="password"
-                        className="mt-1 mb-3 p-1 w-full"
-                        name="userPassword"
-                        value={password}
-                        placeholder="Your Password"
-                        id="userPassword"
-                        onChange={(event) => onChangeHandler(event)}
-                    />
-                    <button
-                        className="bg-green-400 hover:bg-green-500 w-full py-2 text-white"
-                        onClick={(event) => {
-                            signInWithEmailAndPasswordHandler(event)
-                        }}
-                    >
-                        {' '}
-                        Sign in
-                    </button>
-                </form>
-            </div>
-        </div>
+        <EntryForm
+            formType="Sign in"
+            email={email}
+            setEmail={setEmail}
+            password={password}
+            setPassword={setPassword}
+            error={error}
+            onSubmit={signInWithEmailAndPasswordHandler}
+        />
     )
 }
 

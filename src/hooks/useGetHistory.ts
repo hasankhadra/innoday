@@ -6,11 +6,13 @@ import { fetchFromApi } from '../utils/api'
 const useGetHistory = (uid?: string) => {
     const [history, setHistory] = useState<History>()
 
+    // Fetch history from API
     const getHistory = useCallback(async () => {
         const fetchedHistory = await fetchFromApi(API_METHODS.HISTORY, uid)
         setHistory(fetchedHistory)
     }, [uid])
 
+    // Fetch history on mount
     useEffect(() => {
         setHistory({
             activities: [

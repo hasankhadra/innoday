@@ -14,7 +14,6 @@ const DayForm = (props: { uid?: string }) => {
     const [finalFormData, setFinalFormData] = useState<Activity[]>([])
 
     const handleAddActivity = () => {
-        //
         if (!name || !duration) {
             alert('Please fill out all fields!')
             return

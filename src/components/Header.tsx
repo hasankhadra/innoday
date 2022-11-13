@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import Entry from './entry/Entry'
+import EntryHeader from './entry/EntryHeader'
 
 const Header = () => (
     <div>
@@ -9,7 +9,7 @@ const Header = () => (
             <Link href="/day"> Day </Link>
             <Link href="/history"> History </Link>
             <Link href="aboutUs"> About Us </Link>
-            <Entry />
+            <EntryHeader />
         </header>
     </div>
 )

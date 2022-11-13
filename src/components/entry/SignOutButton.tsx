@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 const SignOutButton = () => {
     const router = useRouter()
     const auth = getAuth()
+
     return (
         <button
             onClick={async () => {
