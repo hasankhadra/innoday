@@ -3,7 +3,6 @@ import type { NextPage } from "next";
 // import { getAuth, onAuthStateChanged } from "firebase/auth";
 import React, { useContext, useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { onAuthStateChanged } from "firebase/auth";
 import { FireBaseAppContext } from "../_app";
 import { signInFireBase } from "../../src/utils/firebase";
 
@@ -13,17 +12,15 @@ const Login: NextPage = () => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
   const router = useRouter();
-  const { auth } = useContext(FireBaseAppContext)!;
-
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      router.push("/");
-    }
-  });
+  const { auth, uid } = useContext(FireBaseAppContext)!;
 
   useEffect(() => {
     setLoading(false);
   }, []);
+
+  useEffect(() => {
+    if (uid) router.push("/");
+  }, [router, uid]);
 
   const signInWithEmailAndPasswordHandler = async (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>

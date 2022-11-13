@@ -1,8 +1,7 @@
 import type { NextPage } from "next";
 // import { getAuth, onAuthStateChanged } from "firebase/auth";
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { onAuthStateChanged } from "firebase/auth";
 import { FireBaseAppContext } from "../_app";
 import { createNewUserFireBase } from "../../src/utils/firebase";
 
@@ -11,13 +10,11 @@ const Register: NextPage = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const router = useRouter();
-  const { auth } = useContext(FireBaseAppContext)!;
+  const { auth, uid } = useContext(FireBaseAppContext)!;
 
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      router.push("/");
-    }
-  });
+  useEffect(() => {
+    if (uid) router.push("/");
+  }, [router, uid]);
 
   const registerWithEmailAndPasswordHandler = async (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>

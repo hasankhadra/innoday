@@ -8,5 +8,12 @@ const firebaseConfig = {
   measurementId: process.env.MEASUREMENT_ID,
 };
 
+const BASE_API = "https://api.example.com";
+const APIS = {
+  STATS: `${BASE_API}/stats`,
+  HISTORY: `${BASE_API}/history`,
+  ADD_ACTIVITIES: `${BASE_API}/add-activities`,
+};
+
 // eslint-disable-next-line import/prefer-default-export
-export { firebaseConfig };
+export { firebaseConfig, APIS };
