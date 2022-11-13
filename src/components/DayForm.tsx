@@ -1,5 +1,5 @@
 /* eslint-disable no-alert */
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { ACTIVITY_TYPES, API_METHODS } from '../constants'
 import { Activity } from '../types/gen'
 import { postToApi } from '../utils/api'
@@ -8,8 +8,17 @@ const DayForm = (props: { uid?: string }) => {
     const [name, setName] = useState('')
     const [duration, setDuration] = useState<number>()
     const [type, setType] = useState<ACTIVITY_TYPES>(ACTIVITY_TYPES.STUDY)
+    const [submitted, setSubmitted] = useState<boolean>(false)
 
     const [finalFormData, setFinalFormData] = useState<Activity[]>([])
+
+    useEffect(() => {
+        if (submitted) {
+            alert('Thanks for submitting your data!')
+            setFinalFormData([])
+            setSubmitted(false)
+        }
+    }, [submitted])
 
     const handleSubmit = async () => {
         const filteredActivities = finalFormData.map((activity) => ({
@@ -24,6 +33,7 @@ const DayForm = (props: { uid?: string }) => {
         }
 
         await postToApi(API_METHODS.ADD_ACTIVITIES, request, props.uid)
+        setSubmitted(true)
     }
 
     const handleAddActivity = () => {
