@@ -1,31 +1,25 @@
-/* eslint-disable no-unused-vars */
-
-export enum METHODS {
-  STATS = "STATS",
-  HISTORY = "HISTORY",
-  ADD_ACTIVITIES = "ADD_ACTIVITIES",
-}
+import { ACTIVITY_TYPES } from '../constants'
 
 export type Activity = {
-  name: string;
-  type: string;
-  duration: number;
-  datetime: number;
-};
+    name: string
+    type: ACTIVITY_TYPES
+    duration: number
+    datetime: number
+}
 
 export type ActivityStats = {
-  name: string;
-  type: string;
-  numPeople: number;
-  numHours: number;
-};
+    name: string
+    type: ACTIVITY_TYPES
+    numPeople: number
+    numHours: number
+}
 
 export type Stats = {
-  totalHours: number;
-  totalPeople: number;
-  activities: ActivityStats[];
-};
+    totalHours: number
+    totalPeople: number
+    activities: ActivityStats[]
+}
 
 export type History = {
-  activities: Activity[];
-};
+    activities: Activity[]
+}
