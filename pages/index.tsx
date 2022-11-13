@@ -1,17 +1,14 @@
-import type { NextPage } from "next";
-import { useContext } from "react";
-import SignOutButton from "../src/components/entry/SignOutButton";
-import { AuthenticationContext } from "./_app";
+import type { NextPage } from 'next'
+import Header from '../src/components/Header'
+import Stats from '../src/components/Stats'
 
-const Home: NextPage = () => {
-  const { uid } = useContext(AuthenticationContext)!;
-
-  return (
+const Home: NextPage = () => (
     <div>
-      <div>Home Page</div>
-      {uid && <SignOutButton />}
-    </div>
-  );
-};
+        <Header />
+        <div>Home Page</div>
 
-export default Home;
+        <Stats />
+    </div>
+)
+
+export default Home
