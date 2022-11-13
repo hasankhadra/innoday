@@ -4,6 +4,7 @@
     "project": "./tsconfig.json"
   },
   "rules": {
-    "import/extensions": "off"
+    "import/extensions": "off",
+    "no-shadow": "off"
   }
 }
