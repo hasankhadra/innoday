@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import { useContext } from 'react'
-import DayForm from '../src/components/DayForm'
+import DayForm from '../src/components/day/DayForm'
 import Header from '../src/components/Header'
 import { FireBaseAppContext } from './_app'
 
