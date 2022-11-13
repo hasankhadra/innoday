@@ -7,7 +7,6 @@ import Activities from './Activities'
 import AddActivity from './AddActivity'
 
 const DayForm = (props: { uid?: string }) => {
-
     const [name, setName] = useState('')
     const [duration, setDuration] = useState<number>(1)
     const [type, setType] = useState<ACTIVITY_TYPES>(ACTIVITY_TYPES.STUDY)
@@ -15,8 +14,7 @@ const DayForm = (props: { uid?: string }) => {
     const [finalFormData, setFinalFormData] = useState<Activity[]>([])
 
     const handleAddActivity = () => {
-
-        // 
+        //
         if (!name || !duration) {
             alert('Please fill out all fields!')
             return
@@ -46,7 +44,6 @@ const DayForm = (props: { uid?: string }) => {
     }
 
     const deleteActivity = (index: number) => {
-        
         // create a copy of finalFormData
         const newFormData = [...finalFormData]
 
@@ -57,7 +54,6 @@ const DayForm = (props: { uid?: string }) => {
     }
 
     const handleSubmit = async () => {
-
         // execlude the datetime property from the finalFormData
         const filteredActivities = finalFormData.map((activity) => ({
             name: activity.name,
@@ -88,7 +84,7 @@ const DayForm = (props: { uid?: string }) => {
                 setDuration={setDuration}
                 setType={setType}
             />
-            <Activities 
+            <Activities
                 finalFormData={finalFormData}
                 deleteActivity={deleteActivity}
                 handleSubmit={handleSubmit}

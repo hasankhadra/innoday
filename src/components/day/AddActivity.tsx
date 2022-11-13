@@ -1,15 +1,16 @@
 /* eslint-disable no-unused-vars */
-import { ACTIVITY_TYPES } from "../../constants";
+import { ACTIVITY_TYPES } from '../../constants'
 
 const AddActivity = (props: {
-    name: string, 
-    duration: number, 
-    type: ACTIVITY_TYPES, 
-    handleAddActivity: () => void,
-    setName: (name: string) => void,
-    setDuration: (duration: number) => void,
+    name: string
+    duration: number
+    type: ACTIVITY_TYPES
+    handleAddActivity: () => void
+    setName: (name: string) => void
+    setDuration: (duration: number) => void
     setType: (type: ACTIVITY_TYPES) => void
-}) => (<form>
+}) => (
+    <form>
         <div>
             <label htmlFor="name">Name</label>
             <input
@@ -38,7 +39,9 @@ const AddActivity = (props: {
             <label htmlFor="type">Type</label>
             <select
                 id="type"
-                onChange={(e) => props.setType(e.target.value as ACTIVITY_TYPES)}
+                onChange={(e) =>
+                    props.setType(e.target.value as ACTIVITY_TYPES)
+                }
                 value={props.type}
             >
                 <option value={ACTIVITY_TYPES.STUDY}>Study</option>
@@ -50,6 +53,7 @@ const AddActivity = (props: {
         <button type="button" onClick={props.handleAddActivity}>
             Add Activity
         </button>
-    </form>)
+    </form>
+)
 
-export default AddActivity;
+export default AddActivity

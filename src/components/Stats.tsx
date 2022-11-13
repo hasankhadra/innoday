@@ -1,7 +1,6 @@
 import useGetStats from '../hooks/useGetStats'
 
-const Stats = (props: {uid?: string}) => {
-
+const Stats = (props: { uid?: string }) => {
     const stats = useGetStats(props.uid)
 
     return (
