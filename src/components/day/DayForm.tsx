@@ -1,7 +1,9 @@
 /* eslint-disable no-alert */
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+// eslint-disable-next-line no-unused-vars
 import { ACTIVITY_TYPES, API_METHODS } from '../../constants'
 import { Activity } from '../../types/gen'
+// eslint-disable-next-line no-unused-vars
 import { postToApi } from '../../utils/api'
 import Activities from './Activities'
 import AddActivity from './AddActivity'
@@ -12,6 +14,33 @@ const DayForm = (props: { uid?: string }) => {
     const [type, setType] = useState<ACTIVITY_TYPES>(ACTIVITY_TYPES.STUDY)
 
     const [finalFormData, setFinalFormData] = useState<Activity[]>([])
+    const [submitted, setSubmitted] = useState(false)
+
+    useEffect(() => {
+        if (submitted) {
+            // execlude the datetime property from the finalFormData
+            const filteredActivities = finalFormData.map((activity) => ({
+                name: activity.name,
+                duration: activity.duration,
+                type: activity.type,
+            }))
+
+            // construct the request body
+            // eslint-disable-next-line no-unused-vars
+            const request = {
+                uid: props.uid,
+                activities: filteredActivities,
+                datetime: new Date().getSeconds(),
+            }
+
+            // post the request to the API
+            // await postToApi(API_METHODS.ADD_ACTIVITIES, request, props.uid)
+
+            setFinalFormData([])
+            setSubmitted(false)
+            alert('Form Submitted!')
+        }
+    }, [submitted, finalFormData, props.uid])
 
     const handleAddActivity = () => {
         if (!name || !duration) {
@@ -52,25 +81,6 @@ const DayForm = (props: { uid?: string }) => {
         setFinalFormData(newActivities)
     }
 
-    const handleSubmit = async () => {
-        // execlude the datetime property from the finalFormData
-        const filteredActivities = finalFormData.map((activity) => ({
-            name: activity.name,
-            duration: activity.duration,
-            type: activity.type,
-        }))
-
-        // construct the request body
-        const request = {
-            uid: props.uid,
-            activities: filteredActivities,
-            datetime: new Date().getSeconds(),
-        }
-
-        // post the request to the API
-        await postToApi(API_METHODS.ADD_ACTIVITIES, request, props.uid)
-    }
-
     return (
         <div>
             <h2>Day Form</h2>
@@ -86,7 +96,7 @@ const DayForm = (props: { uid?: string }) => {
             <Activities
                 finalFormData={finalFormData}
                 deleteActivity={deleteActivity}
-                handleSubmit={handleSubmit}
+                handleSubmit={() => setSubmitted(true)}
             />
         </div>
     )

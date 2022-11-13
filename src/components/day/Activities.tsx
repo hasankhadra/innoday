@@ -1,10 +1,12 @@
+import React from 'react'
 import { Activity } from '../../types/gen'
 
 const Activities = (props: {
     finalFormData: Activity[]
     // eslint-disable-next-line no-unused-vars
     deleteActivity: (index: number) => void
-    handleSubmit: () => Promise<void>
+    // eslint-disable-next-line no-unused-vars
+    handleSubmit: (submitted: boolean) => void
 }) => (
     <div>
         <h2>Added Activities</h2>
@@ -20,8 +22,11 @@ const Activities = (props: {
                     </li>
                 ))}
         </ul>
-        <form onSubmit={props.handleSubmit}>
-            <button> Submit Activities</button>
+        <form>
+            <button onClick={() => props.handleSubmit(true)}>
+                {' '}
+                Submit Activities
+            </button>
         </form>
     </div>
 )

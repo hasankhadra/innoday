@@ -23,7 +23,6 @@ const EntryForm = (props: {
 
     return (
         <div>
-            <h1 className="text-3xl mb-2 text-center font-bold">Login</h1>
             <div className="login">
                 {props.error !== '' && <div>{props.error}</div>}
                 <form className="">

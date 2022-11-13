@@ -6,6 +6,7 @@ import { FireBaseAppContext } from '../_app'
 import { signInFireBase } from '../../src/utils/firebase'
 import { isEmailValid, isPasswordValid } from '../../src/utils/validation'
 import EntryForm from '../../src/components/entry/EntryForm'
+import EntryHeader from '../../src/components/entry/EntryHeader'
 
 const Login: NextPage = () => {
     const [email, setEmail] = useState('')
@@ -50,15 +51,20 @@ const Login: NextPage = () => {
     }
 
     return (
-        <EntryForm
-            formType="Sign in"
-            email={email}
-            setEmail={setEmail}
-            password={password}
-            setPassword={setPassword}
-            error={error}
-            onSubmit={signInWithEmailAndPasswordHandler}
-        />
+        <div>
+            <EntryHeader />
+            <h1 className="text-3xl mb-2 text-center font-bold">Login</h1>
+
+            <EntryForm
+                formType="Sign in"
+                email={email}
+                setEmail={setEmail}
+                password={password}
+                setPassword={setPassword}
+                error={error}
+                onSubmit={signInWithEmailAndPasswordHandler}
+            />
+        </div>
     )
 }
 

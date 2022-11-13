@@ -5,6 +5,7 @@ import { FireBaseAppContext } from '../_app'
 import { createNewUserFireBase } from '../../src/utils/firebase'
 import { isEmailValid, isPasswordValid } from '../../src/utils/validation'
 import EntryForm from '../../src/components/entry/EntryForm'
+import EntryHeader from '../../src/components/entry/EntryHeader'
 
 const Register: NextPage = () => {
     const [email, setEmail] = useState('')
@@ -49,15 +50,20 @@ const Register: NextPage = () => {
     }
 
     return (
-        <EntryForm
-            formType="Sign up"
-            email={email}
-            setEmail={setEmail}
-            password={password}
-            setPassword={setPassword}
-            error={error}
-            onSubmit={registerWithEmailAndPasswordHandler}
-        />
+        <div>
+            <EntryHeader />
+            <h1 className="text-3xl mb-2 text-center font-bold">Register</h1>
+
+            <EntryForm
+                formType="Sign up"
+                email={email}
+                setEmail={setEmail}
+                password={password}
+                setPassword={setPassword}
+                error={error}
+                onSubmit={registerWithEmailAndPasswordHandler}
+            />
+        </div>
     )
 }
 
