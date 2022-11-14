@@ -51,7 +51,7 @@ const EntryForm = (props: {
                         onChange={(event) => onChangeHandler(event)}
                     />
                     <button
-                        className="bg-green-400 hover:bg-green-500 w-full py-2 text-white"
+                        className="button"
                         onClick={(event) => {
                             props.onSubmit(event)
                         }}

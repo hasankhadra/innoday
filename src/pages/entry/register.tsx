@@ -51,7 +51,7 @@ const Register: NextPage = () => {
 
     return (
         <div>
-            <EntryHeader />
+            <EntryHeader uid={uid} />
             <h1 className="text-3xl mb-2 text-center font-bold">Register</h1>
 
             <EntryForm

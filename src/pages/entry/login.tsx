@@ -1,4 +1,3 @@
-/* eslint-disable import/extensions */
 import type { NextPage } from 'next'
 import React, { useContext, useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
@@ -52,7 +51,7 @@ const Login: NextPage = () => {
 
     return (
         <div>
-            <EntryHeader />
+            <EntryHeader uid={uid} />
             <h1 className="text-3xl mb-2 text-center font-bold">Login</h1>
 
             <EntryForm

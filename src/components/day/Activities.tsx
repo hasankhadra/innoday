@@ -15,7 +15,10 @@ const Activities = (props: {
                 props.finalFormData.map((activity, index) => (
                     <li key={index}>
                         {activity.name} - {activity.duration} - {activity.type}
-                        <button onClick={() => props.deleteActivity(index)}>
+                        <button
+                            name={`deleteActivity-${index}`}
+                            onClick={() => props.deleteActivity(index)}
+                        >
                             {' '}
                             delete{' '}
                         </button>
@@ -23,7 +26,10 @@ const Activities = (props: {
                 ))}
         </ul>
         <form>
-            <button onClick={() => props.handleSubmit(true)}>
+            <button
+                name="submitActivities"
+                onClick={() => props.handleSubmit(true)}
+            >
                 {' '}
                 Submit Activities
             </button>
