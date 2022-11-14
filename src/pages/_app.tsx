@@ -1,10 +1,10 @@
-import '../styles/globals.css'
+import '../../styles/globals.css'
 import type { AppProps } from 'next/app'
 import { initializeApp, FirebaseApp } from 'firebase/app'
 import { Firestore, getFirestore } from 'firebase/firestore/lite'
 import React, { useMemo } from 'react'
 import { Auth, getAuth, onAuthStateChanged } from 'firebase/auth'
-import { firebaseConfig } from '../src/utils/config'
+import { firebaseConfig } from '../utils/config'
 
 const app = initializeApp(firebaseConfig)
 const db = getFirestore(app)

@@ -1,8 +1,8 @@
 import type { NextPage } from 'next'
 import { useRouter } from 'next/router'
 import { useContext, useEffect } from 'react'
-import DayForm from '../src/components/day/DayForm'
-import Header from '../src/components/Header'
+import DayForm from '../components/day/DayForm'
+import Header from '../components/Header'
 import { FireBaseAppContext } from './_app'
 
 const Day: NextPage = () => {

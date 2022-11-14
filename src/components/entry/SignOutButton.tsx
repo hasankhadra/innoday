@@ -7,6 +7,7 @@ const SignOutButton = () => {
 
     return (
         <button
+            name="signOut"
             onClick={async () => {
                 await auth.signOut()
                 router.push('/entry/login')

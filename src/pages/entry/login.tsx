@@ -2,12 +2,12 @@ import type { NextPage } from 'next'
 import React, { useContext, useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { FireBaseAppContext } from '../_app'
-import { createNewUserFireBase } from '../../src/utils/firebase'
-import { isEmailValid, isPasswordValid } from '../../src/utils/validation'
-import EntryForm from '../../src/components/entry/EntryForm'
-import EntryHeader from '../../src/components/entry/EntryHeader'
+import { signInFireBase } from '../../utils/firebase'
+import { isEmailValid, isPasswordValid } from '../../utils/validation'
+import EntryForm from '../../components/entry/EntryForm'
+import EntryHeader from '../../components/entry/EntryHeader'
 
-const Register: NextPage = () => {
+const Login: NextPage = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [error, setError] = useState('')
@@ -26,7 +26,7 @@ const Register: NextPage = () => {
         }
     }, [router, submitted])
 
-    const registerWithEmailAndPasswordHandler = async (
+    const signInWithEmailAndPasswordHandler = async (
         event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
     ) => {
         event.preventDefault()
@@ -42,29 +42,29 @@ const Register: NextPage = () => {
         }
 
         try {
-            await createNewUserFireBase(auth, email, password)
+            await signInFireBase(auth, email, password)
             setSubmitted(true)
         } catch (_error) {
-            setError('Error registering with password and email!')
+            setError('Error signing in with password and email!')
         }
     }
 
     return (
         <div>
-            <EntryHeader />
-            <h1 className="text-3xl mb-2 text-center font-bold">Register</h1>
+            <EntryHeader uid={uid} />
+            <h1 className="text-3xl mb-2 text-center font-bold">Login</h1>
 
             <EntryForm
-                formType="Sign up"
+                formType="Sign in"
                 email={email}
                 setEmail={setEmail}
                 password={password}
                 setPassword={setPassword}
                 error={error}
-                onSubmit={registerWithEmailAndPasswordHandler}
+                onSubmit={signInWithEmailAndPasswordHandler}
             />
         </div>
     )
 }
 
-export default Register
+export default Login
