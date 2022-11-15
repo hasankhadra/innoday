@@ -14,10 +14,14 @@ export type ActivityStats = {
     numHours: number
 }
 
-export type Stats = {
+export type DayStats = {
     totalHours: number
     totalPeople: number
     activities: ActivityStats[]
+}
+
+export type Stats = {
+    [key: string]: DayStats
 }
 
 export type History = {

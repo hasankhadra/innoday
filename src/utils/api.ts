@@ -7,13 +7,24 @@ import { API_METHODS } from '../constants'
  * @param uid: string | null
  * @returns Promise<any>
  */
-const fetchFromApi = async (method: API_METHODS, uid?: string) => {
-    if (!uid) {
+const fetchFromApi = async (
+    method: API_METHODS,
+    uid?: string,
+    day?: string,
+) => {
+    if (method !== API_METHODS.STATS && !uid) {
         throw new Error('No userId is provided!')
     }
 
     try {
-        const response = await axios.get(APIS[method], { params: { uid } })
+        const params: {
+            uid?: string
+            day?: string
+        } = day ? { day } : {}
+
+        if (uid) params.uid = uid
+
+        const response = await axios.get(APIS[method], { params })
         return response.data
     } catch (error) {
         return null

@@ -1,7 +1,7 @@
 /* eslint-disable no-alert */
 import React, { useState, useEffect } from 'react'
 // eslint-disable-next-line no-unused-vars
-import { ACTIVITY_TYPES, API_METHODS } from '../../constants'
+import { ACTIVITY_TYPES, API_METHODS, DAYS } from '../../constants'
 import { Activity } from '../../types/gen'
 // eslint-disable-next-line no-unused-vars
 import { postToApi } from '../../utils/api'
@@ -31,6 +31,7 @@ const DayForm = (props: { uid?: string }) => {
                 uid: props.uid,
                 activities: filteredActivities,
                 datetime: new Date().getSeconds(),
+                day: DAYS[new Date().getDay()],
             }
 
             // post the request to the API
