@@ -6,10 +6,10 @@ const Stats = (props: { uid?: string }) => {
     const stats = useGetStats(props.uid)
 
     return (
-        <div >
+        <div>
             {DAYS.map((day: string) => (
-                <div  className='dayStats' key={day}>
-                    <h3 >Stats for {day}</h3>
+                <div className="dayStats" key={day}>
+                    <h3>Stats for {day}</h3>
                     {stats && (
                         <div>
                             Total hours spent today: {stats[day].totalHours}
