@@ -1,3 +1,4 @@
+import './Stats.module.css'
 import { DAYS } from '../constants'
 import useGetStats from '../hooks/useGetStats'
 
@@ -5,11 +6,10 @@ const Stats = (props: { uid?: string }) => {
     const stats = useGetStats(props.uid)
 
     return (
-        <div>
+        <div >
             {DAYS.map((day: string) => (
-                <div key={day}>
-                    ----------------------------------------
-                    <div>Stats for {day}</div>
+                <div  className='dayStats' key={day}>
+                    <h3 >Stats for {day}</h3>
                     {stats && (
                         <div>
                             Total hours spent today: {stats[day].totalHours}
@@ -24,9 +24,9 @@ const Stats = (props: { uid?: string }) => {
                         {stats &&
                             stats[day].activities.map((stat) => (
                                 <div key={stat.name}>
-                                    <div>
+                                    <h4>
                                         {stat.name} - {stat.type}
-                                    </div>
+                                    </h4>
                                     <div>
                                         Total hours spent:{' '}
                                         {(

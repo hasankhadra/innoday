@@ -7,10 +7,9 @@ const UserHistory = (props: { uid?: string }) => {
         <div>
             {history?.activities.map((activity) => (
                 <div key={activity.datetime}>
-                    <div>{activity.name}</div>
-                    <div>{activity.duration}</div>
-                    <div>{activity.type}</div>
-                    <div>{activity.datetime}</div>
+                    <h3>{activity.type} - {activity.name}</h3>
+                    <div>Spent {(activity.duration / 3600).toFixed(2)} hours</div>
+                    <div>Time: {new Date().getDate()}/{new Date().getMonth()}/{new Date().getFullYear()}</div>
                 </div>
             ))}
         </div>
