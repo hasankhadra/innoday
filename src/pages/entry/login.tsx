@@ -68,3 +68,11 @@ const Login: NextPage = () => {
 }
 
 export default Login
+
+/*
+{
+    uid: "sdjkfgh2344ltjhsldf",
+    
+
+}
+*/

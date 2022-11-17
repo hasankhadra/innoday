@@ -13,5 +13,4 @@ const Header = (props: { uid?: string }) => (
         </header>
     </div>
 )
-
 export default Header

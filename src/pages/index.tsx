@@ -15,7 +15,7 @@ const Home: NextPage = () => {
 
     return (
         <div>
-            <Header />
+            <Header uid={uid} />
 
             <div>Home Page</div>
 
