@@ -1,9 +1,7 @@
 /* eslint-disable no-alert */
 import React, { useState, useEffect } from 'react'
-// eslint-disable-next-line no-unused-vars
 import { ACTIVITY_TYPES, API_METHODS, DAYS } from '../../constants'
 import { Activity } from '../../types/gen'
-// eslint-disable-next-line no-unused-vars
 import { postToApi } from '../../utils/api'
 import Activities from './Activities'
 import AddActivity from './AddActivity'
@@ -26,20 +24,21 @@ const DayForm = (props: { uid?: string }) => {
             }))
 
             // construct the request body
-            // eslint-disable-next-line no-unused-vars
             const request = {
                 uid: props.uid,
                 activities: filteredActivities,
-                datetime: new Date().getSeconds(),
+                datetime: Math.floor(Date.now() / 1000),
                 day: DAYS[new Date().getDay()],
             }
 
             // post the request to the API
-            // await postToApi(API_METHODS.ADD_ACTIVITIES, request, props.uid)
-
-            setFinalFormData([])
-            setSubmitted(false)
-            alert('Form Submitted!')
+            postToApi(API_METHODS.ADD_ACTIVITIES, request, props.uid).then(
+                () => {
+                    setFinalFormData([])
+                    setSubmitted(false)
+                    alert('Form Submitted!')
+                },
+            )
         }
     }, [submitted, finalFormData, props.uid])
 
@@ -58,9 +57,9 @@ const DayForm = (props: { uid?: string }) => {
 
         const newActivity = {
             name,
-            duration,
+            duration: duration * 3600,
             type,
-            datetime: new Date().getSeconds(),
+            datetime: Math.floor(Date.now() / 1000),
         }
 
         // set the state of finalFormData to include the new activity

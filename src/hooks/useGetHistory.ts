@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 import { History } from '../types/gen'
-import { ACTIVITY_TYPES, API_METHODS } from '../constants'
+import { API_METHODS } from '../constants'
 import { fetchFromApi } from '../utils/api'
 
 const useGetHistory = (uid?: string) => {
@@ -8,32 +8,25 @@ const useGetHistory = (uid?: string) => {
 
     // Fetch history from API
     const getHistory = useCallback(async () => {
-        const fetchedHistory = await fetchFromApi(API_METHODS.HISTORY, uid)
-        setHistory(fetchedHistory)
+        if (uid) {
+            const fetchedHistory = await fetchFromApi(API_METHODS.HISTORY, uid)
+            return fetchedHistory
+        }
+        return ''
     }, [uid])
 
     // Fetch history on mount
     useEffect(() => {
-        setHistory({
-            activities: [
-                {
-                    name: 'Running',
-                    duration: 60,
-                    type: ACTIVITY_TYPES.SPORTS,
-                    datetime: 1115,
-                },
-                {
-                    name: 'Playing Guitar',
-                    duration: 30,
-                    type: ACTIVITY_TYPES.FUN,
-                    datetime: 2222,
-                },
-            ],
-        })
-
-        // @TODO: integrate with backend
-        // getHistory()
-    }, [getHistory])
+        let isMounted = true
+        if (isMounted) {
+            getHistory().then((newHistory) => {
+                if (newHistory && isMounted) setHistory(newHistory)
+            })
+        }
+        return () => {
+            isMounted = false
+        }
+    }, [getHistory, uid])
 
     return history
 }

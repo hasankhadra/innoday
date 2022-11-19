@@ -8,7 +8,6 @@ export type Activity = {
 }
 
 export type ActivityStats = {
-    name: string
     type: ACTIVITY_TYPES
     numPeople: number
     numHours: number
@@ -24,6 +23,11 @@ export type Stats = {
     [key: string]: DayStats
 }
 
-export type History = {
-    activities: Activity[]
+export type API_ACTIVITY = {
+    name__c: string
+    type__c: ACTIVITY_TYPES
+    duration__c: number
+    datetime__c: number
 }
+
+export type History = API_ACTIVITY[]

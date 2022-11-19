@@ -1,11 +1,11 @@
+/* eslint-disable no-unused-vars */
+
 import React from 'react'
 import { Activity } from '../../types/gen'
 
 const Activities = (props: {
     finalFormData: Activity[]
-    // eslint-disable-next-line no-unused-vars
     deleteActivity: (index: number) => void
-    // eslint-disable-next-line no-unused-vars
     handleSubmit: (submitted: boolean) => void
 }) => (
     <div>

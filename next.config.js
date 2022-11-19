@@ -11,6 +11,15 @@ const nextConfig = {
         MEASUREMENT_ID: process.env.MEASUREMENT_ID,
         BASE_API: process.env.BASE_API,
     },
+    async rewrites() {
+        return [
+            {
+                source: '/api/:path*',
+                destination:
+                    'https://innoday-developer-edition.eu44.force.com/services/apexrest/:path*',
+            },
+        ]
+    },
 }
 
 module.exports = nextConfig

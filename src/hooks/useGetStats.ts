@@ -1,60 +1,39 @@
 import { useCallback, useEffect, useState } from 'react'
-import { DayStats, Stats } from '../types/gen'
-import { ACTIVITY_TYPES, API_METHODS, DAYS } from '../constants'
+import { Stats } from '../types/gen'
+import { API_METHODS, DAYS } from '../constants'
 import { fetchFromApi } from '../utils/api'
 
 const useGetStats = (uid?: string) => {
     const [stats, setStats] = useState<Stats>()
 
     // Fetch stats from API
-    const getStats = useCallback(
-        async (currentDay: string) => {
-            const fetchedStats: DayStats = await fetchFromApi(
-                API_METHODS.STATS,
-                uid,
-                currentDay,
-            )
-            setStats({ ...stats, [currentDay]: fetchedStats })
-        },
-        [stats, uid],
-    )
+    const getStats = useCallback(async () => {
+        const newStats: Stats = {}
+
+        // eslint-disable-next-line no-restricted-syntax
+        for (const currentDay of DAYS) {
+            const fetchedStats: string | 'No activities in this day!' =
+                // eslint-disable-next-line no-await-in-loop
+                await fetchFromApi(API_METHODS.STATS, uid, currentDay)
+
+            if (fetchedStats !== 'No activities in this day!') {
+                newStats[currentDay] = JSON.parse(fetchedStats)
+            }
+        }
+
+        return newStats
+    }, [uid])
 
     // Fetch stats on mount
     useEffect(() => {
-        if (!stats) {
-            const mockStatsArray = DAYS.map((day: string) => ({
-                [day]: {
-                    totalHours: 90,
-                    totalPeople: 10,
-                    activities: [
-                        {
-                            name: 'Running',
-                            type: ACTIVITY_TYPES.SPORTS,
-                            numPeople: 5,
-                            numHours: 30,
-                        },
-                        {
-                            name: 'Playing Guitar',
-                            type: ACTIVITY_TYPES.FUN,
-                            numPeople: 5,
-                            numHours: 60,
-                        },
-                    ],
-                },
-            }))
-
-            // eslint-disable-next-line no-unused-vars
-            const mockStats = mockStatsArray.reduce(
-                (o, key) => ({ ...o, ...key }),
-                {},
-            )
-
-            // setStats(mockStats)
-
-            // @TODO: integrate with backend
-            DAYS.map((day: string) => getStats(day))
+        let isMounted = true
+        getStats().then((newStats) => {
+            if (isMounted) setStats(newStats)
+        })
+        return () => {
+            isMounted = false
         }
-    }, [getStats, stats])
+    }, [getStats])
 
     return stats
 }

@@ -23,16 +23,9 @@ const fetchFromApi = async (
         } = day ? { day } : {}
 
         if (uid) params.uid = uid
-        const oaram = {
-            day: 'MON',
-            uid: '11233',
-        }
-        // eslint-disable-next-line no-console
-        console.log('fdsfs', APIS[method])
-        const response = await axios.get(APIS[method], { params: oaram })
 
-        // eslint-disable-next-line no-console
-        console.log('response', response.data)
+        const response = await axios.get(APIS[method], { params })
+
         return response.data
     } catch (error) {
         return null
@@ -53,6 +46,7 @@ const postToApi = async (method: API_METHODS, data: any, uid?: string) => {
 
     try {
         const response = await axios.post(APIS[method], { ...data, uid })
+
         return response.data
     } catch (error) {
         return null

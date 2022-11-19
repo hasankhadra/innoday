@@ -20,13 +20,21 @@ const firebaseConfig = {
 
 // const { BASE_API } = process.env
 
-const BASE_API =
+export const BASE_API =
     'https://innoday-developer-edition.eu44.force.com/services/apexrest'
 
+const NEXT_BASE_API = '/api'
+
 const APIS = {
-    STATS: `${BASE_API}/getByDay`,
-    HISTORY: `${BASE_API}/history`,
-    ADD_ACTIVITIES: `${BASE_API}/add-activities`,
+    STATS: `${NEXT_BASE_API}/getByDay`,
+    HISTORY: `${NEXT_BASE_API}/history`,
+    ADD_ACTIVITIES: `${NEXT_BASE_API}/add-activities`,
 }
 
-export { firebaseConfig, APIS }
+const NEXT_APIS = {
+    STATS: `${BASE_API}/getByDay`,
+    HISTORY: `${BASE_API}/createActivity`,
+    ADD_ACTIVITIES: `${BASE_API}/createActivity`,
+}
+
+export { firebaseConfig, APIS, NEXT_APIS }
