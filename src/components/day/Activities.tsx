@@ -19,8 +19,7 @@ const Activities = (props: {
                             name={`deleteActivity-${index}`}
                             onClick={() => props.deleteActivity(index)}
                         >
-                            {' '}
-                            delete{' '}
+                            delete
                         </button>
                     </li>
                 ))}
@@ -30,7 +29,6 @@ const Activities = (props: {
                 name="submitActivities"
                 onClick={() => props.handleSubmit(true)}
             >
-                {' '}
                 Submit Activities
             </button>
         </form>

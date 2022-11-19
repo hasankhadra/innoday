@@ -19,7 +19,7 @@ const DayForm = (props: { uid?: string }) => {
             // execlude the datetime property from the finalFormData
             const filteredActivities = finalFormData.map((activity) => ({
                 name: activity.name,
-                duration: activity.duration,
+                duration: activity.duration * 3600,
                 type: activity.type,
             }))
 
@@ -32,13 +32,13 @@ const DayForm = (props: { uid?: string }) => {
             }
 
             // post the request to the API
-            postToApi(API_METHODS.ADD_ACTIVITIES, request, props.uid).then(
-                () => {
+            postToApi(API_METHODS.ADD_ACTIVITIES, request, props.uid)
+                .then(() => {
                     setFinalFormData([])
                     setSubmitted(false)
                     alert('Form Submitted!')
-                },
-            )
+                })
+                .catch()
         }
     }, [submitted, finalFormData, props.uid])
 
@@ -57,7 +57,7 @@ const DayForm = (props: { uid?: string }) => {
 
         const newActivity = {
             name,
-            duration: duration * 3600,
+            duration,
             type,
             datetime: Math.floor(Date.now() / 1000),
         }

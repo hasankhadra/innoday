@@ -14,8 +14,8 @@ const UserHistory = (props: { uid?: string }) => {
                                     {activity.type__c} - {activity.name__c}
                                 </h3>
                                 <div>
-                                    Spent{' '}
-                                    {(activity.duration__c / 3600).toFixed(2)}{' '}
+                                    Spent
+                                    {(activity.duration__c / 3600).toFixed(2)}
                                     hours
                                 </div>
                                 <div>

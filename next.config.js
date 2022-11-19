@@ -10,6 +10,7 @@ const nextConfig = {
         APP_ID: process.env.APP_ID,
         MEASUREMENT_ID: process.env.MEASUREMENT_ID,
         BASE_API: process.env.BASE_API,
+        TEST_ENV_ENV: process.env.TEST_ENV_ENV,
     },
     async rewrites() {
         return [

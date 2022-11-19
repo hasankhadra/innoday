@@ -13,41 +13,40 @@ const Stats = (props: { uid?: string }) => {
                     <h3>Stats for {day}</h3>
                     {stats?.hasOwnProperty(day) && stats[day] && (
                         <div>
-                            Total hours spent today: {stats[day].totalHours}
+                            <div>
+                                Total hours spent today: {stats[day].totalHours}
+                            </div>
+                            <div>
+                                Total people active today:{' '}
+                                {stats[day].totalHours}
+                            </div>
+                            <div>
+                                {stats[day].activities.map((stat) => (
+                                    <div key={stat.type}>
+                                        <h4>{stat.type}</h4>
+                                        <div>
+                                            Total hours spent:
+                                            {(
+                                                (stat.numHours /
+                                                    stats[day].totalHours) *
+                                                100
+                                            ).toFixed(2)}
+                                            %
+                                        </div>
+                                        <div>
+                                            Total people who did this activity:
+                                            {(
+                                                (stat.numPeople /
+                                                    stats[day].totalPeople) *
+                                                100
+                                            ).toFixed(2)}
+                                            %
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                     )}
-                    {stats?.hasOwnProperty(day) && stats[day] && (
-                        <div>
-                            Total people active today: {stats[day].totalHours}
-                        </div>
-                    )}
-                    <div>
-                        {stats?.hasOwnProperty(day) &&
-                            stats[day] &&
-                            stats[day].activities.map((stat) => (
-                                <div key={stat.type}>
-                                    <h4>{stat.type}</h4>
-                                    <div>
-                                        Total hours spent:{' '}
-                                        {(
-                                            (stat.numHours /
-                                                stats[day].totalHours) *
-                                            100
-                                        ).toFixed(2)}{' '}
-                                        %
-                                    </div>
-                                    <div>
-                                        Total people who did this activity:{' '}
-                                        {(
-                                            (stat.numPeople /
-                                                stats[day].totalPeople) *
-                                            100
-                                        ).toFixed(2)}{' '}
-                                        %
-                                    </div>
-                                </div>
-                            ))}
-                    </div>
                 </div>
             ))}
         </div>

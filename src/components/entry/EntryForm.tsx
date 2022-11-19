@@ -56,8 +56,7 @@ const EntryForm = (props: {
                             props.onSubmit(event)
                         }}
                     >
-                        {' '}
-                        {props.formType}{' '}
+                        {props.formType}
                     </button>
                 </form>
             </div>
