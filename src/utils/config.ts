@@ -11,7 +11,7 @@ const firebaseConfig = {
 const { BASE_API } = process.env
 
 const APIS = {
-    STATS: `${BASE_API}/stats`,
+    STATS: `${BASE_API}/getByDay`,
     HISTORY: `${BASE_API}/history`,
     ADD_ACTIVITIES: `${BASE_API}/add-activities`,
 }

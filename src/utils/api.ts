@@ -23,8 +23,16 @@ const fetchFromApi = async (
         } = day ? { day } : {}
 
         if (uid) params.uid = uid
+        const oaram = {
+            day: 'MON',
+            uid: '11233',
+        }
+        // eslint-disable-next-line no-console
+        console.log('fdsfs', APIS[method])
+        const response = await axios.get(APIS[method], { params: oaram })
 
-        const response = await axios.get(APIS[method], { params })
+        // eslint-disable-next-line no-console
+        console.log('response', response.data)
         return response.data
     } catch (error) {
         return null

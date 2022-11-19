@@ -8,8 +8,7 @@ const useGetStats = (uid?: string) => {
 
     // Fetch stats from API
     const getStats = useCallback(
-        async (day: number) => {
-            const currentDay = DAYS[day]
+        async (currentDay: string) => {
             const fetchedStats: DayStats = await fetchFromApi(
                 API_METHODS.STATS,
                 uid,
@@ -44,15 +43,16 @@ const useGetStats = (uid?: string) => {
                 },
             }))
 
+            // eslint-disable-next-line no-unused-vars
             const mockStats = mockStatsArray.reduce(
                 (o, key) => ({ ...o, ...key }),
                 {},
             )
 
-            setStats(mockStats)
+            // setStats(mockStats)
 
             // @TODO: integrate with backend
-            // getStats()
+            DAYS.map((day: string) => getStats(day))
         }
     }, [getStats, stats])
 
