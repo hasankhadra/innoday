@@ -15,6 +15,9 @@ const Login: NextPage = () => {
     const { auth, uid } = useContext(FireBaseAppContext)!
     const [submitted, setSubmitted] = useState(false)
 
+    // eslint-disable-next-line no-console
+    console.log('TEST ENV', process.env?.TEST_ENV_ENV)
+
     useEffect(() => {
         if (uid) router.push('/')
     }, [router, uid])

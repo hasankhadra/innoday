@@ -19,8 +19,6 @@ export const FireBaseAppContext = React.createContext<{
 function MyApp({ Component, pageProps }: AppProps) {
     const [uid, setUid] = React.useState<string>('')
 
-    // eslint-disable-next-line no-console
-    console.log('TEST ENV', process.env?.TEST_ENV_ENV)
     const auth = getAuth(app)
 
     onAuthStateChanged(auth, (user) => {
