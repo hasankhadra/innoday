@@ -15,7 +15,7 @@ const History: NextPage = () => {
 
     return (
         <div>
-            <Header />
+            <Header uid={uid} />
             <div>History Page</div>
             <UserHistory uid={uid} />
         </div>

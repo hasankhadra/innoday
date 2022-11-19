@@ -9,7 +9,7 @@ const Header = (props: { uid?: string }) => (
             <Link href="/day"> Day </Link>
             <Link href="/history"> History </Link>
             <Link href="aboutUs"> About Us </Link>
-            <EntryHeader uid={props.uid} />
+            {props.uid && <EntryHeader uid={props.uid} />}
         </header>
     </div>
 )
