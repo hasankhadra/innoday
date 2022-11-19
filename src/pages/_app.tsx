@@ -7,6 +7,10 @@ import { Auth, getAuth, onAuthStateChanged } from 'firebase/auth'
 import { firebaseConfig } from '../utils/config'
 
 const app = initializeApp(firebaseConfig)
+
+// eslint-disable-next-line no-console
+console.log('TEST ENV', process.env.TEST_ENV_ENV)
+
 const db = getFirestore(app)
 
 export const FireBaseAppContext = React.createContext<{

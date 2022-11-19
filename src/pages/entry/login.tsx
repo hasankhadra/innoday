@@ -16,8 +16,6 @@ const Login: NextPage = () => {
     const [submitted, setSubmitted] = useState(false)
 
     useEffect(() => {
-        // eslint-disable-next-line no-console
-        console.log('TEST ENV', process.env.TEST_ENV_ENV)
         if (uid) router.push('/')
     }, [router, uid])
 
