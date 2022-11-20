@@ -1,11 +1,14 @@
 import type { NextPage } from 'next'
 import React, { useContext, useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
+import Image from 'next/image'
 import { FireBaseAppContext } from '../_app'
 import { signInFireBase } from '../../utils/firebase'
 import { isEmailValid, isPasswordValid } from '../../utils/validation'
-import EntryForm from '../../components/entry/EntryForm'
-import EntryHeader from '../../components/entry/EntryHeader'
+import EntryForm from '../../components/entry/EntryForm/EntryForm'
+import EntryHeader from '../../components/entry/EntryHeader/EntryHeader'
+import styles from './login.module.css'
+import logo from '../../assets/logo.svg'
 
 const Login: NextPage = () => {
     const [email, setEmail] = useState('')
@@ -50,19 +53,23 @@ const Login: NextPage = () => {
     }
 
     return (
-        <div>
-            <EntryHeader uid={uid} />
-            <h1 className="text-3xl mb-2 text-center font-bold">Login</h1>
+        <div className={styles.EntryBG}>
+            <div className={styles.logo}>
+                <Image src={logo} alt="logo" />
+            </div>
+            <div className={styles.loginWrapper}>
+                <EntryHeader uid={uid} />
 
-            <EntryForm
-                formType="Sign in"
-                email={email}
-                setEmail={setEmail}
-                password={password}
-                setPassword={setPassword}
-                error={error}
-                onSubmit={signInWithEmailAndPasswordHandler}
-            />
+                <EntryForm
+                    formType="Sign in"
+                    email={email}
+                    setEmail={setEmail}
+                    password={password}
+                    setPassword={setPassword}
+                    error={error}
+                    onSubmit={signInWithEmailAndPasswordHandler}
+                />
+            </div>
         </div>
     )
 }

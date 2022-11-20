@@ -1,0 +1,17 @@
+.HeaderWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 30px;
+}
+
+.LinksWrapper {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    color: white;
+}
+
+.HeaderBG {
+    background-color: #0f316c;
+}

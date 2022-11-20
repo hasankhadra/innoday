@@ -1,0 +1,32 @@
+.dayStats {
+    background: #e6f0fa;
+    border-radius: 12px;
+    padding: 16px;
+    width: 400px;
+    align-self: flex-start;
+}
+
+.DaysWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 42px;
+    justify-content: center;
+    padding-top: 40px;
+    align-items: center;
+}
+
+.h3 {
+    color: #0066c6;
+}
+
+.type {
+    color: #15b012;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.number {
+    color: #0066c6;
+    font-weight: 700;
+    font-size: 18px;
+}

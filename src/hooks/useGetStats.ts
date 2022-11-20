@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Stats } from '../types/gen'
-import { API_METHODS, DAYS } from '../constants'
+import { ACTIVITY_TYPES, API_METHODS, DAYS } from '../constants'
 import { fetchFromApi } from '../utils/api'
 
 const useGetStats = (uid?: string) => {
@@ -18,6 +18,36 @@ const useGetStats = (uid?: string) => {
 
             if (fetchedStats !== 'No activities in this day!') {
                 newStats[currentDay] = JSON.parse(fetchedStats)
+            } else {
+                newStats[currentDay] = {
+                    totalHours: 0,
+                    totalPeople: 0,
+                    activities: [
+                        {
+                            type: ACTIVITY_TYPES.SPORTS,
+                            numHours: 0,
+                            numPeople: 0,
+                        },
+
+                        {
+                            type: ACTIVITY_TYPES.STUDY,
+                            numHours: 0,
+                            numPeople: 0,
+                        },
+
+                        {
+                            type: ACTIVITY_TYPES.WORK,
+                            numHours: 0,
+                            numPeople: 0,
+                        },
+
+                        {
+                            type: ACTIVITY_TYPES.FUN,
+                            numHours: 0,
+                            numPeople: 0,
+                        },
+                    ],
+                }
             }
         }
 

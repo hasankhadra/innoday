@@ -1,0 +1,16 @@
+.DayFormWrapper {
+    padding-top: 30px;
+}
+
+.ActivitiesWrapper {
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+.h2 {
+    color: #15b012;
+    padding-bottom: 20px;
+}

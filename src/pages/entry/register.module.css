@@ -1,0 +1,20 @@
+.EntryBG {
+    background: #e6f0fa;
+    height: 100vh;
+    padding-top: 42px;
+}
+
+.logo {
+    width: 100%;
+    margin-bottom: 80px;
+    display: flex;
+    justify-content: center;
+}
+
+.loginWrapper {
+    background: #0f316c;
+    border-radius: 20px;
+    max-width: 520px;
+    margin: auto;
+    padding: 80px;
+}
