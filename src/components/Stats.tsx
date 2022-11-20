@@ -14,11 +14,12 @@ const Stats = (props: { uid?: string }) => {
                     {stats?.hasOwnProperty(day) && stats[day] && (
                         <div>
                             <div>
-                                Total hours spent today: {stats[day].totalHours}
+                                Total hours spent today:{' '}
+                                {stats[day].totalHours / 3600}
                             </div>
                             <div>
                                 Total people active today:{' '}
-                                {stats[day].totalHours}
+                                {stats[day].totalPeople}
                             </div>
                             <div>
                                 {stats[day].activities.map((stat) => (
