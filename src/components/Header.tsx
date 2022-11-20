@@ -6,7 +6,7 @@ const Header = (props: { uid?: string }) => (
         <header>
             <h1>Innoday</h1>
             <Link href="/"> Home </Link>
-            <Link href="/day"> Day </Link>
+            <Link href="/day"> Add Activities </Link>
             <Link href="/history"> History </Link>
             <Link href="aboutUs"> About Us </Link>
             {props.uid && <EntryHeader uid={props.uid} />}

@@ -16,7 +16,7 @@ const Day: NextPage = () => {
     return (
         <div>
             <Header uid={uid} />
-            <div>About Us Page</div>
+            <div>Add Activities</div>
             <DayForm uid={uid} />
         </div>
     )
