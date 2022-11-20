@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import Activities from '../../../src/components/day/Activities'
+import Activities from '../../../src/components/day/Activities/Activities'
 import { ACTIVITY_TYPES } from '../../../src/constants'
 
 describe('Content', () => {
@@ -69,7 +69,7 @@ describe('Content', () => {
         cy.get('button[name="deleteActivity-0"]').should('have.length', 1)
         cy.get('button[name="deleteActivity-0"]').should(
             'contain.text',
-            'delete',
+            'Delete',
         )
 
         cy.get('button[name="deleteActivity-0"]').click()

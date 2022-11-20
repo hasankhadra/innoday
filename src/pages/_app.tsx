@@ -1,4 +1,4 @@
-import '../../styles/globals.css'
+import '../globals.css'
 import type { AppProps } from 'next/app'
 import { initializeApp, FirebaseApp } from 'firebase/app'
 import { Firestore, getFirestore } from 'firebase/firestore/lite'

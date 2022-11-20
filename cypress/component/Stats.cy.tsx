@@ -1,10 +1,10 @@
 /* eslint-disable no-undef */
-import Stats from '../../src/components/Stats'
+import Stats from '../../src/components/Stats/Stats'
 
 describe('Content', () => {
     it('Check for the h1 tag', () => {
         cy.mount(<Stats />)
-        cy.get('div').should('contains.text', 'Stats for today')
+        cy.get('h3').should('contains.text', 'Stats for')
     })
 
     it('Check for the navigation links', async () => {

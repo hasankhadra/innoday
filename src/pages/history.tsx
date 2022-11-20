@@ -1,8 +1,8 @@
 import type { NextPage } from 'next'
 import { useRouter } from 'next/router'
 import { useContext, useEffect } from 'react'
-import Header from '../components/Header'
-import UserHistory from '../components/UserHistory'
+import Header from '../components/Header/Header'
+import UserHistory from '../components/UserHistory/UserHistory'
 import { FireBaseAppContext } from './_app'
 
 const History: NextPage = () => {
@@ -16,7 +16,7 @@ const History: NextPage = () => {
     return (
         <div>
             <Header uid={uid} />
-            <div>History Page</div>
+
             <UserHistory uid={uid} />
         </div>
     )

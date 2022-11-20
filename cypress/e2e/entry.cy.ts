@@ -9,7 +9,7 @@ describe('Entry', () => {
 
             cy.url().should('include', '/register')
 
-            cy.get('h1').contains('Register')
+            cy.get('button').contains('Sign up')
         })
     })
 
@@ -17,7 +17,7 @@ describe('Entry', () => {
         it('should register', async () => {
             cy.visit('http://localhost:3000/entry/register')
 
-            cy.get('input[name="userEmail"]').type('cypress@test.com')
+            cy.get('input[name="userEmail"]').type('cypresss@test.com')
             cy.get('input[name="userPassword"]').type('asdfqwerT$3d')
             cy.get('button').click()
 
